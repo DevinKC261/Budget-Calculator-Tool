@@ -1,10 +1,12 @@
 :root {
     --primary-color: #3E3A78; /*Fixed colors to match Figma file*/
-    --secondary-color: #B085FF  ;
+    --secondary-color: #B085FF ;
     --background-color: #ebd3e7;
+    --expenses-bg-color: #8856bb;
     --text-color: #000000;
     --font-family: 'Kodchasan', sans-serif;
 }
+
 body, html {
     margin: 0;
     padding: 0;
@@ -12,6 +14,11 @@ body, html {
     color: var(--text-color);
     font-family: var(--font-family);
 }
+
+main {
+    margin: 5%;
+}
+
 nav {
     display: flex;
     flex-flow: row nowrap;
@@ -52,4 +59,82 @@ nav {
 
 .logo { /*Make logo a circle*/
     border-radius: 100%;
+}
+
+
+
+
+
+/* Budget Calculating Part! */
+
+
+/* Pick Your Date thing */
+#pick-your-date {
+    display: flex;
+}
+
+form {
+    display: grid;
+    grid-template: auto 100px / auto;
+}
+
+#inputFields {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#inputFields li {
+    display: grid;
+    grid-template: auto / 100px 300px 100px 100px;
+    justify-content: center;
+    border-radius: 20px;
+
+    &:first-child .date-input {
+        border-radius: 20px 0 0 0;
+    }
+    &:last-child .date-input {
+        border-radius: 0 0 0 20px;
+    }
+
+    &:first-child .expense-input {
+        border-radius: 0 20px 0 0;
+    }
+    &:last-child .expense-input {
+        border-radius: 0 0 20px 0;
+    }
+
+    & .expense-title, & input, & button {
+        background-color: var(--expenses-bg-color);
+        padding: 20px;
+        margin: 0px;
+
+        color: white;
+        border: 3px solid white;
+    }
+}
+.expense-input {
+
+    &::before {
+        content: '$';
+    }
+}
+
+form #add-new {
+    margin-left: 30%;
+    font-size: 20px;
+
+    border: 0;
+    background-color: #00000000;
+
+    &::before {
+        content: '+';
+        font-size: 50px;
+    }
+}
+
+/* Appears once all inputs are filled out */
+#finish-button {
+    display: none;
 }

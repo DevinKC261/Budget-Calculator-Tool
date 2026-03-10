@@ -1,6 +1,8 @@
 const inputField = document.getElementById('inputFields');
 const addButton = document.getElementById('add-new');
 const expenseStatusButtons = document.getElementsByClassName('expense-status')[0].parentElement;
+const finishBtn = document.getElementById('finish-button')
+const deleteBtn = document.getElementsByClassName('deleter')
 
 addButton.addEventListener('click', () => {
     const newInput = document.createElement('li');
@@ -23,4 +25,3 @@ inputField.addEventListener('click', (event) => {
         }
     }
 });
-
